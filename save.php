@@ -26,6 +26,12 @@ $items = $crawler->filter('.EIR5N > a > div')->each(function (Crawler $node, $i)
     return $item;
 });
 
+$file = fopen('data.csv', 'w');
+
+foreach ($items as $item) {
+	fputcsv($file, $item);
+}
+fclose($file);
 print_r($items);
 
 
